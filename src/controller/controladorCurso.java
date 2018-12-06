@@ -30,7 +30,7 @@ public class controladorCurso {
         return curso1.borrarCurso(id);
     }
 
-    public static void main(String[] args){
+   /* public static void main(String[] args){
 
         controladorCurso cc = new controladorCurso();
         System.out.println(cc.insertCurso(new curso(002,"frances","3")));
@@ -60,5 +60,7 @@ public class controladorCurso {
 
         //Eliminar un elemento
         //System.out.println(cc.eliminarCurso("2"));
+
     }
+    */
 }

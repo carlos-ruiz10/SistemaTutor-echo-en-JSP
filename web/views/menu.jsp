@@ -13,7 +13,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="index.jsp"><i class="material-icons left">home</i>Inicio</a> </li>
                     <li><a href="cursos.jsp"><i class="material-icons left">view_module</i>Cursos</a> </li>
-                    <li><a href="tema_cursos.jsp"><i class="material-icons left">view_module</i>Temas cursos</a> </li>
+                    <li><a href="temas_cursos.jsp"><i class="material-icons left">view_module</i>Temas cursos</a> </li>
 
                     <li><a href="acercade.jsp"><i class="material-icons left">help</i>Acerca de</a> </li>
                     <li><a href="manual.jsp"><i class="material-icons left">book</i>Manual</a> </li>

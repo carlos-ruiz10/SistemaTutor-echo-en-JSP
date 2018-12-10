@@ -1,4 +1,8 @@
-<%--
+<%@ page import="controller.controladorTemas_curso" %>
+<%@ page import="include.temas_curso" %>
+<%@page import="include.curso" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="controller.controladorCurso" %><%--
   Created by IntelliJ IDEA.
   User: Carlos
   Date: 06/12/2018
@@ -6,6 +10,23 @@
   To change this template use File | Settings | File Templates.
 --%>
 <jsp:include page='views/header.jsp'></jsp:include>
+
+<%
+    controladorCurso cc = new controladorCurso();
+    ArrayList<curso> cursos = new ArrayList<curso>();
+    cursos = cc.obtenerCurso();
+
+
+    String htmlselect = "";
+    htmlselect += "<select name=\"ID_CURSO\">\n" +
+            "                <option value=\"\" selected disabled>Elige el curso" +
+            "</option>\n";
+    for(int a=0; a<cursos.size();a++){
+        htmlselect += "<option value=\""+cursos.get(a).getId_curso()+"\">"+cursos.get(a).getNombre_curso()+"</option>\n";
+    }
+    htmlselect += "            </select>";
+
+%>
 
 <div class="container">
     <form class="col s12" action="/crearTemasCurso" method="post">
@@ -43,8 +64,10 @@
 
             </div>
             <div class="input-field col s8">
-                <input id="ID_CURSO" name="ID_CURSO" type="text" value="">
-                <label for="ID_CURSO" class="center-align">Id Curso</label>
+
+                <%
+                   out.print(htmlselect);
+                %>
             </div>
             <div class="col s2">
 

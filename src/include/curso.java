@@ -6,6 +6,11 @@ public class curso {
     private String nombre_curso;
     private String nivel;
 
+    public curso(int id_curso, String nombre_curso) {
+        this.id_curso = id_curso;
+        this.nombre_curso = nombre_curso;
+    }
+
     public curso(int id_curso, String nombre_curso, String nivel) {
         this.id_curso = id_curso;
         this.nombre_curso = nombre_curso;

@@ -3,12 +3,31 @@
 <%@page import="controller.controladorTemas_curso" %>
 <%@page import="include.temas_curso" %>
 <%@page import="java.util.ArrayList" %>
+<%@ page import="include.curso" %>
+<%@ page import="controller.controladorCurso" %>
 
 <%
     String ID_TEMAS = request.getParameter("ID_TEMAS");
     controladorTemas_curso cc = new controladorTemas_curso();
     ArrayList<temas_curso> temasCursos = new ArrayList<temas_curso>();
     temasCursos = cc.obtenerTemas_curso(ID_TEMAS);
+%>
+
+<%
+    controladorCurso ct = new controladorCurso();
+    ArrayList<curso> cursos = new ArrayList<curso>();
+    cursos = ct.obtenerCurso();
+
+
+    String htmlselect = "";
+    htmlselect += "<select name=\"ID_CURSO\">\n" +
+            "                <option value=\"\" selected disabled>Elige el curso" +
+            "</option>\n";
+    for(int a=0; a<cursos.size();a++){
+        htmlselect += "<option value=\""+cursos.get(a).getId_curso()+"\">"+cursos.get(a).getNombre_curso()+"</option>\n";
+    }
+    htmlselect += "            </select>";
+
 %>
 
 <div class="container">
@@ -47,8 +66,9 @@
 
             </div>
             <div class="input-field col s8">
-                <input id="ID_CURSO" name="ID_CURSO" type="text" value="<% out.print(temasCursos.get(0).getId_curso()); %>">
-                <label for="ID_CURSO" class="center-align">Id Curso</label>
+                <%
+                    out.print(htmlselect);
+                %>
             </div>
             <div class="col s2">
 

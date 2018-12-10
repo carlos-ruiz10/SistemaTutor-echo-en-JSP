@@ -1,4 +1,5 @@
 package controller;
+import include.curso;
 import include.temas_curso;
 import model.modeloTemas_curso;
 
@@ -14,6 +15,10 @@ public class controladorTemas_curso {
     public ArrayList<temas_curso> obtenerTemas_curso(){
         modeloTemas_curso temas_curso = new modeloTemas_curso();
         return temas_curso.obtenerTemas_curso();
+    }
+    public ArrayList<curso> obtenerCursofk(){
+        modeloTemas_curso curso = new modeloTemas_curso();
+        return curso.obtenerCursofk();
     }
 
     public ArrayList<temas_curso> obtenerTemas_curso(String id){

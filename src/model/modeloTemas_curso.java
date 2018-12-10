@@ -1,5 +1,6 @@
 package model;
 
+import include.curso;
 import sun.awt.SunHints;
 import  include.temas_curso;
 import java.sql.PreparedStatement;
@@ -60,6 +61,32 @@ public class modeloTemas_curso extends conexion {
             }
         }
         return temas_cursos;
+    }
+
+    public ArrayList<curso> obtenerCursofk(){
+        ArrayList<curso>  cursos = new ArrayList<curso>();
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            String consulta ="SELECT id_curso, nombre_curso FROM curso";
+            pst = getConection().prepareCall(consulta);
+            rs = pst.executeQuery();
+            while (rs.next()){
+                cursos.add(new curso(rs.getInt("id_curso"),
+                        rs.getString("nombre_curso")));
+            }
+        }catch (Exception e){
+
+        }finally {
+            try {
+                if (getConection() !=null)getConection().close();
+                if (pst != null)pst.close();
+                if (rs !=null)rs.close();
+            }catch (Exception e){
+
+            }
+        }
+        return cursos;
     }
 
     public ArrayList<temas_curso> obtenerTemas_curso(String id){
